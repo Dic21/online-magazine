@@ -1,0 +1,52 @@
+.container{
+    display: flex;
+    width: 95%;
+}
+form{
+    padding: 25px;
+    box-sizing: border-box;
+}
+.form{
+    height: 540px;
+    background-color: lightgoldenrodyellow;
+    flex-grow: 1;
+    margin-left: 30px;
+}
+.form>form{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+form>label{
+    text-align: left;
+    margin-top:10px;
+}
+form>input[type="text"]{
+    margin-bottom: 15px;
+}
+.inputbox{
+    border: 1px solid lightgrey;
+    height:30px;
+    font-size: large;
+}
+.formhead{
+    background-color: lightgrey;
+    height:100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    width: 100px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: lightgrey;
+    border: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+#message{
+    height:100px;
+    resize: none
+}

@@ -1,11 +1,53 @@
 .App {
   text-align: center;
+  font-family: "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif, serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.topbar{
+  background-color: #fde33f;
+  height: 65px;
+
 }
+
+
+.topbar>div{
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.lock{
+  max-width:1280px;
+  margin: 0 auto;
+}
+nav>ul{
+  padding: 0;
+}
+nav a{
+  text-decoration: none;
+  color: black;
+  margin: 0 5px;
+  padding: 7px 15px;
+}
+nav>ul>li:hover{
+  transform: translate(0px, -2px);
+}
+nav>ul>li>a:hover{
+  background-color: #fcb426;
+  border-radius: 20px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  margin-left: auto;
+}
+.active{
+  background-color: #282c34;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

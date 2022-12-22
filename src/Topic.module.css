@@ -1,0 +1,33 @@
+.main-container{
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+.forum{
+    margin-right: 15px;
+}
+.forum:last-child{
+    margin-right: 0px;
+}
+#forumtable{
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    height:275px;
+}
+#forumtable tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+#forumtable tr:not(.loading):hover {
+    background-color: #ddd;
+}
+#forumtable th{
+    background-color: rgb(255, 196, 18);
+}
+.cloud{
+    width:80%;
+    height:300px;
+    margin: auto;
+}
+.cloudbtn{
+    margin-top: 10px;
+}
