@@ -29,5 +29,26 @@
     margin: auto;
 }
 .cloudbtn{
-    margin-top: 10px;
+    margin: 10px 0;
+}
+.title{
+    font-size: larger;
+    text-align: left;
+}
+.title>h2{
+    margin-left:10px;
+}
+
+@media screen and (max-width: 575px){
+    .main-container{
+        flex-direction: column;
+    }
+    .forum{
+        margin-right: 0px;
+    }
+    .forum:not(:first-child){
+        margin-top: 10px;
+    }
+
+
 }

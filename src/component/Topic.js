@@ -78,11 +78,14 @@ function Main(){
   }
   return(
     <div>
-        最新熱門話題
-        <div className={`${topicStyle["main-container"]} lock`}>
-            <Forum site="hkd" list={hkdlist}/>
-            <Forum site="baby" list={babylist}/>
-            <Forum site="lihkg" list={lihkglist}/>
+        <div className={`${topicStyle.title} lock`}>
+          <h2>🔥最新熱門話題</h2>
+        </div>
+        <div className={`${topicStyle["main-container"]} lock `}>
+
+          <Forum site="hkd" list={hkdlist}/>
+          <Forum site="baby" list={babylist}/>
+          <Forum site="lihkg" list={lihkglist}/>
         </div>
         <button className={topicStyle.cloudbtn} onClick={handleClick} disabled={!hkdlist||!babylist||!lihkglist}>查看熱門字雲</button>
         {cloud? <Word data={[hkdlist, babylist, lihkglist]}/>:null}

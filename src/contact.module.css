@@ -1,6 +1,7 @@
 .container{
     display: flex;
     width: 95%;
+    margin-top: 20px;
 }
 form{
     padding: 25px;
@@ -49,4 +50,16 @@ form>input[type="text"]{
 #message{
     height:100px;
     resize: none
+}
+
+@media screen and (max-width: 575px){
+    .container{
+        flex-direction: column-reverse;
+    }
+    .form{
+        margin: 0 0 15px 0;
+    }
+    iframe{
+        width:90%;
+    }
 }

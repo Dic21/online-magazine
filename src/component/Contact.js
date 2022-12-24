@@ -4,7 +4,6 @@ import contactStyle from '../contact.module.css';
 function Contact() {
     return (
         <div>
-            contact
             <Form/>
         </div>
     )
@@ -26,8 +25,7 @@ function Form() {
     return (
         <div className={`lock ${contactStyle.container}`}>
             <div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d521.6539599607572!2d114.22339238759841!3d22.309077734600898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2shk!4v1671631175252!5m2!1sen!2shk" width="600" height="450" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d536.9400583332932!2d114.22333362317413!3d22.308951504310418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34040145ac23ef27%3A0x72c63f3d4fbb24b1!2z54Cd5rSL5bel5qWt5aSn5buI!5e0!3m2!1szh-TW!2shk!4v1671870833665!5m2!1szh-TW!2shk" width="600" height="450" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <div className={contactStyle.form}>
