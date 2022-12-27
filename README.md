@@ -7,7 +7,7 @@ The template demonstrates grid layouts and a navigation bar that links to variou
 
 <b>Scraping feature by Puppeteer</b>
 
-It scrapes data from three local online forums instantly on page load. To launch, please start the backend-puppeteer server first (GitHub HERE). The page illustrates three tables of top forum posts on each sources and a wordcloud showing the mentioned terms with high frequency.
+It scrapes data from three local online forums instantly on page load. To launch, please start the backend-puppeteer server first (GitHub <a href="https://github.com/Dic21/puppeteer-forum-scraper">HERE</a>). The page illustrates three tables of top forum posts on each sources and a wordcloud showing the mentioned terms with high frequency.
 
 <img src="https://user-images.githubusercontent.com/108064133/209646926-fe7ce86d-0529-470b-bb87-118f6aea78ca.png" width="720px" />
 
