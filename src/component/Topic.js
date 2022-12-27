@@ -6,6 +6,7 @@ import linkImage from '../image/link.svg';
 import WordCloud from 'react-d3-cloud';
 import topicStyle from '../Topic.module.css';
 import infoImage from '../image/info-circle.svg';
+import reloadImage from '../image/reload.svg';
 
 const jieba = createJieba(
   JiebaDict,
@@ -64,11 +65,16 @@ function Main(){
     fetchData('lihkg');
   }, [])
 
-  const fetchData =(site)=>{
+  const fetchData =(site, isUpdate)=>{
     const method = {
         "hkd": sethkdlist,
         "baby": setbabylist,
         "lihkg": setlihkglist
+    }
+    if(isUpdate){
+
+      method[site](null);
+      setCloud(false);
     }
     fetch(`/${site}`).then(resData=>resData.json()).then((data)=>{
         method[site](data);
@@ -77,6 +83,7 @@ function Main(){
   const handleClick=()=>{
     setCloud(true);
   }
+
   return(
     <div>
         <div className={`${topicStyle.title} lock`}>
@@ -90,9 +97,9 @@ function Main(){
         </div>
         <div className={`${topicStyle["main-container"]} lock `}>
 
-          <Forum site="hkd" list={hkdlist}/>
-          <Forum site="baby" list={babylist}/>
-          <Forum site="lihkg" list={lihkglist}/>
+          <Forum site="hkd" list={hkdlist} update={()=>{fetchData('hkd', true)}}/>
+          <Forum site="baby" list={babylist} update={()=>{fetchData('baby', true)}}/>
+          <Forum site="lihkg" list={lihkglist} update={()=>{fetchData('lihkg', true)}}/>
         </div>
         <button className={topicStyle.cloudbtn} onClick={handleClick} disabled={!hkdlist||!babylist||!lihkglist}>查看熱門字雲</button>
         {cloud? <Word data={[hkdlist, babylist, lihkglist]}/>:null}
@@ -125,7 +132,11 @@ function Forum(props){
 
   return(
     <div className={topicStyle.forum}>
-      {forumDict[site]}
+      <div className={topicStyle.forumtitle}>
+        {forumDict[site]}
+        {list? <span className={topicStyle.reload} onClick={props.update}><img src={reloadImage}/></span> : null}
+      </div>
+      
       <table id={topicStyle.forumtable}>
         <thead>
           <tr>

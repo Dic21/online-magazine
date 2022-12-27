@@ -61,6 +61,14 @@
 .infoicon:hover .info{
     display: inline-flex;
 }
+.forumtitle{
+    position: relative;
+}
+.reload{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
 
 @media screen and (max-width: 575px){
     .main-container{
