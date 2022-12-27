@@ -42,6 +42,11 @@
 .small, .big-desc {
     margin-right: 15px;
 }
+.big-desc{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 .small{
     height: 145px;
     text-align: left;
@@ -78,13 +83,14 @@
 }
 .iteminfo{
     display: flex;
-
+    overflow: hidden;
 }
 .iteminfo>img{
     flex: 0 0 25%;
     width: 80px;
     height: 80px;
     padding: 0px 10px;
+    transition: 0.3s all;
 }
 .itemdesc{
     flex: 1 0 50%;
@@ -114,7 +120,7 @@
     margin-right:15px;
     border-radius: 14px;
 }
-.small>a{
+.small>a, .big-desc>a{
     text-decoration: none;
     color:black
 }
@@ -126,6 +132,34 @@
     border-radius: 15px;
     object-fit: cover;
 }
+.itemdesc>div>span{
+    background-color: #fde33f;
+    padding: 0px 13px;
+    border-radius: 10px;
+}
+.sight-item:hover{
+    cursor: pointer;
+}
+.sight-item:hover .itemdesc>div>span{
+    background-color: #dabe05;
+}
+.sight-item:hover .iteminfo>img{
+    transform: scale(1.3);
+}
+.morebtn{
+    background-color: #fde33f;
+    padding:4px 10px;
+    border: 0;
+    border-radius: 13px;
+    cursor: pointer;
+}
+.big-desc>a{
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.morebtn:hover{
+    background-color: #dabe05;
+}
 
 @media screen and (max-width: 575px){
     .grid-container{
@@ -136,6 +170,7 @@
     #banner{
         grid-column: 1 / 2;
         height:150px;
+        margin-right:0;
     }
     #sight{
         grid-row: 4;
@@ -149,5 +184,8 @@
     }
     .abs{
         display: none;
+    }
+    .big-desc{
+        margin-right: 0;
     }
 }

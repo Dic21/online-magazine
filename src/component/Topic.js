@@ -5,6 +5,7 @@ import loadinglogo from '../image/wait.gif';
 import linkImage from '../image/link.svg';
 import WordCloud from 'react-d3-cloud';
 import topicStyle from '../Topic.module.css';
+import infoImage from '../image/info-circle.svg';
 
 const jieba = createJieba(
   JiebaDict,
@@ -79,7 +80,13 @@ function Main(){
   return(
     <div>
         <div className={`${topicStyle.title} lock`}>
-          <h2>🔥最新熱門話題</h2>
+          <div>
+            <h2>🔥最新熱門話題 </h2>
+            <div className={topicStyle.infoicon}>
+              <img src={infoImage}></img>
+              <span className={topicStyle.info}>資料取自各大討論區飲食台首頁。以下表格顯示最多留言數的5則貼文，長青貼文(即留言數&gt;500)則不計算在內。</span>
+            </div>
+          </div>
         </div>
         <div className={`${topicStyle["main-container"]} lock `}>
 
@@ -110,7 +117,7 @@ function Forum(props){
   let sortList = [];
   if(list){
     sortList = list.filter((post)=>{
-      return post.cmCount < 1000
+      return post.cmCount < 500
     }).sort((a,b)=>{
       return b.cmCount - a.cmCount;
     })

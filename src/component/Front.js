@@ -20,7 +20,7 @@ function Front(){
         {/* banner */}
         <div id={frontStyle.banner}></div>
         <Sight/>
-        <Headline head="2022年十大點心排行榜" para="點心放題成為流行指標，皆因不少港人喜歡飲茶，根據2022最新調查，最受歡迎的點心竟然是...！"/>
+        <Headline head="2022年十大點心排行榜" para="點心放題成為流行指標，皆因不少港人喜歡飲茶，根據2022最新調查，最受歡迎的點心竟然是...！" id="n01"/>
         <SmallBox cate="西餐" article={list[1]}/>
         <SmallBox cate="專訪" article={list[2]}/>
         <SmallBox cate="搵食" article={list[3]}/> 
@@ -37,14 +37,16 @@ function Headline(props){
             <p>
                 {props.para}
             </p>
-            <button>Read more</button>
+            <Link to={`/article/${props.id}`}>
+                <span className={frontStyle.morebtn}>看更多...</span>
+            </Link>
         </div>
     </>
     )
 }
 
 function Sight(){
-    const goods = [{title: "饅頭", subtitle:"little bun", price:"$10", image:bunImage}, {title: "飛碟三文治", subtitle:"Sandwhiches from Thailand", price:"$15", image:sandwichesImage},{title: "黑松露薯片", subtitle:"Tasty potato chips", price:"$8", image:chipsImage}]
+    const goods = [{title: "饅頭", subtitle:"Little bun", price:"$10", image:bunImage}, {title: "飛碟三文治", subtitle:"Sandwhiches", price:"$15", image:sandwichesImage},{title: "黑松露薯片", subtitle:"Tasty potato chips", price:"$8", image:chipsImage}]
     return (
     <div id={frontStyle.sight}>
         <h2>熱賣商品</h2> 

@@ -35,8 +35,31 @@
     font-size: larger;
     text-align: left;
 }
-.title>h2{
+.title>div{
+    position: relative;
+}
+.title>div>h2{
     margin-left:10px;
+    display: inline-block;
+}
+.infoicon{
+    display: inline-block;
+    position: absolute;
+    top: 32px;
+    margin-left: 10px;
+}
+.info{
+    display: none;
+    font-size: 9px;
+    margin: 0 15px;
+    position: absolute;
+    top: -5px;
+    width:300px;
+    color:rgb(83, 83, 83);
+    background: lightgoldenrodyellow;
+}
+.infoicon:hover .info{
+    display: inline-flex;
 }
 
 @media screen and (max-width: 575px){
@@ -44,11 +67,29 @@
         flex-direction: column;
     }
     .forum{
-        margin-right: 0px;
+        margin: 10px 0 0 0;
     }
-    .forum:not(:first-child){
-        margin-top: 10px;
+    .forum:first-child{
+        margin-top:25px;
     }
+    .infoicon{
+        display: inline;
+        position: static
+    }
+    .info{
+        z-index:-1;
+        position: static;
+        top: 0;
+    }
+    .infoicon:hover .info{
+        display: block;
+    }
+    .title>div>h2{
+        margin-bottom: 0;
+    }
+
+
+
 
 
 }
