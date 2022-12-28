@@ -13,6 +13,7 @@ function Form() {
     const [nameText, setNameText] = useState("");
     const [emailText, setEmailText] = useState("");
     const [msgText, setMsgText] = useState("");
+    const [errorMsg, setErrorMsg] = useState(false);
 
     const handleTextChange=(e)=>{
         const table = {
@@ -22,6 +23,21 @@ function Form() {
         }
         table[e.target.name](e.target.value);
     }
+
+    const validation=()=>{
+        let valid = true;
+        if(!nameText || !emailText || !msgText){
+            valid = false;
+        return valid;
+        }
+    }
+    const handleValidation =(e)=>{
+        let v = validation();
+        if (v === false){
+            setErrorMsg(true);
+            e.preventDefault(); 
+        }
+    }
     return (
         <div className={`lock ${contactStyle.container}`}>
             <div>
@@ -30,13 +46,14 @@ function Form() {
 
             <div className={contactStyle.form}>
                 <div className={contactStyle.formhead}>請填寫資料，我們稍後會回覆您。</div>
-                <form method="post">
+                <form method="post" onSubmit={handleValidation}>
                     <label>姓名</label>
                     <input type="text" className={contactStyle.inputbox} name="name" value={nameText} onChange={handleTextChange}/>
                     <label>電郵</label>
                     <input type="text" className={contactStyle.inputbox} name="email" value={emailText} onChange={handleTextChange} />
                     <label>訊息</label>
                     <textarea id={contactStyle.message} className={contactStyle.inputbox} name="message" value={msgText} onChange={handleTextChange}></textarea>
+                    {errorMsg? <span className={contactStyle.errormsg}>請填寫以上所有欄位。</span>: null}
                     <button className={contactStyle.btn}>送出</button>
                 </form>
             </div>

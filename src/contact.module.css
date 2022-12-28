@@ -51,6 +51,9 @@ form>input[type="text"]{
     height:100px;
     resize: none
 }
+.errormsg{
+    color:red;
+}
 
 @media screen and (max-width: 575px){
     .container{
