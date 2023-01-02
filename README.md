@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ReactJS and React Router are applied for this frontend repo. To start, please run <code>npm start</code>.
 
-The template demonstrates grid layouts and a navigation bar that links to various categories, used effectively on online media sites. Also, there are a contact page and a page titled '網民熱話' (Hot Topic on online forums), which scrapes data from several local popular forums by using Puppeteer.
+The template demonstrates grid layouts and a navigation bar that links to various categories, used effectively on online media sites. MongoDB is applied in the project for storing articles, please run the backend server locally to start (GitHub <a href="https://github.com/Dic21/online-magazine-backend">HERE</a>). Also, there are a contact page and a page titled '網民熱話' (Hot Topic on online forums), which scrapes data from several local popular forums by using Puppeteer.
 
 <b>Scraping feature by Puppeteer</b>
 
