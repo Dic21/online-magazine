@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width:70%;
+    margin:auto;
+}
+.container>input, .container>textarea, .container>select{
+    margin:15px;
+    min-height: 30px;
+}
+.container>label{
+    text-align: left;
+}
+#con{
+    height: 300px;
+}
+#ans{
+    height: 150px;
+}
+.container>button{
+    margin-bottom:10px;
+    padding:5px;
+    width:65px;
+    align-self: center;
+}

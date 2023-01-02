@@ -6,6 +6,7 @@ import News from './component/News';
 import NewsBody from './component/NewsBody';
 import NewsArticle from './component/NewsArticle';
 import Contact from './component/Contact';
+import Test from './component/Test';
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import React from 'react';
 
@@ -72,6 +73,7 @@ function App() {
             <Route path=":articleId" element={<NewsArticle />} />
           </Route>
           <Route path="contact-us" element={<Contact />} ></Route>
+          <Route path="admin/create" element={<Test />} ></Route>
         </Routes>
       </div>
     </BrowserRouter>

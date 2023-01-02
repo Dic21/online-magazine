@@ -4,14 +4,18 @@ import { Link} from 'react-router-dom';
 import bunImage from '../image/bun.png';
 import sandwichesImage from '../image/sandwiches.png';
 import chipsImage from '../image/chips.jpeg';
-import  {articleList}  from "../articleList";
 
 function Front(){
     const [list, setList] = useState([]);
     useEffect(()=>{
-        setList(articleList);
+        fetchData()
     },[])
-    console.log(list);
+
+    const fetchData = ()=>{
+        fetch('/api/article').then((resData)=>{return resData.json()}).then((data)=>{
+            setList(data);
+        })
+    }
     if(list.length===0){
         return <div>Loading...</div>
     }

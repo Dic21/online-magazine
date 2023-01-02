@@ -1,7 +1,6 @@
 import newsStyle from '../News.module.css';
 import {useState, useEffect} from 'react';
 import {Outlet, useOutlet, useLocation, Link} from 'react-router-dom';
-import  {articleList}  from "../articleList";
 
 function News(){
     const [list, setList] = useState([]);
@@ -12,8 +11,15 @@ function News(){
         borderBottom: "2px solid grey"
     }
     useEffect(()=>{
-        setList(articleList);
+        fetchData();
     },[])
+
+    const fetchData = ()=>{
+        fetch('/api/article').then((resData)=>{return resData.json()}).then((data)=>{
+            setList(data);
+        })
+    }
+
     return(
         <div className={newsStyle["cate-nav"]}>
             <div className='lock' style={{height: "100%"}}>
@@ -31,8 +37,8 @@ function News(){
                 (<div className='lock' style={{width: "90%"}}>
                     {list.map((a)=>{
                         return (
-                            <Link to={`${a.id}`}>
-                                <div key={a.title} className={newsStyle["article-container"]}> 
+                            <Link to={`${a.id}`} key={a.title} >
+                                <div className={newsStyle["article-container"]}> 
                                     <h3>{a.title}</h3>
                                     <div>{a.date}</div>
                                     <div>{a.abstract}</div>

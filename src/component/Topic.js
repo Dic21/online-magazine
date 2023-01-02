@@ -40,7 +40,7 @@ function Word(props){
     return obj;
   });
   let cloud = output.filter((word)=>{
-    return !(/[,.!;@#$%!！，。? ^&&*＞>/？）(（)\u9999]/).test(word.text) && (word.text !== "amp") && (word.text.length!==1) && (isNaN(word.text))
+    return !(/[,.!;@#$%!！，。? ^&&*＞>/？）(（)\u9999]/).test(word.text) && (word.text !== "amp") && (word.text !== "lt") && (word.text !== "gt") && (word.text.length!==1) && (isNaN(word.text))
   }).sort((a,b)=>{
     return b.value - a.value;
   }).slice(0,70);
@@ -76,7 +76,7 @@ function Main(){
       method[site](null);
       setCloud(false);
     }
-    fetch(`/${site}`).then(resData=>resData.json()).then((data)=>{
+    fetch(`/scraper/${site}`).then(resData=>resData.json()).then((data)=>{
         method[site](data);
     })    
   }

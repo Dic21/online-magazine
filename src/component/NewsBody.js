@@ -7,10 +7,17 @@ function NewsBody(props) {
     const currentPath = props.path;
     const [path, setPath] = useState(currentPath);
     const [list, setList] = useState([]);
-    const filterList = articleList.filter((a)=>{return a.path === path});
+    // const filterList = articleList.filter((a)=>{return a.path === path});
     useEffect(()=>{
-        setList(filterList)
+        fetchData();
     },[path])
+    
+    const fetchData = ()=>{
+        fetch(`/api/article/category/${currentPath}`).then((resData)=>{return resData.json()}).then((data)=>{
+            setList(data);
+        })
+    }
+
     if(currentPath!==path){
         setPath(currentPath);
     }

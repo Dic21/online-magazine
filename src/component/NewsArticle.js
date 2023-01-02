@@ -1,18 +1,22 @@
 import newsStyle from '../News.module.css';
 import {useState, useEffect} from 'react';
 import {useParams, Link} from 'react-router-dom';
-import  {articleList}  from "../articleList";
 
 function NewsArticle(){
     const [fontSize, setFontSize] = useState("medium");
     const { articleId } = useParams();
-    const article = articleList.filter((a)=>{return articleId === a.id})[0];
     const [art, setArt] = useState(null);
     useEffect(()=>{
-        setArt(article);
+        fetchData();
         let size = initSize();
         setFontSize(size);
     },[])
+
+    const fetchData = ()=>{
+        fetch(`/api/article/${articleId}`).then((resData)=>{return resData.json()}).then((data)=>{
+            setArt(data);
+        })
+    }
 
     const initSize =()=>{
         let size = localStorage.getItem('size')
