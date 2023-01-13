@@ -6,9 +6,11 @@ import News from './component/News';
 import NewsBody from './component/NewsBody';
 import NewsArticle from './component/NewsArticle';
 import Contact from './component/Contact';
-import Test from './component/Test';
-import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useLocation, Navigate } from "react-router-dom";
 import React from 'react';
+import AdminLogin from './component/AdminLogin';
+import AdminMain from './component/AdminMainPage';
+import AdminCreatePost from './component/AdminCreatePost';
 
 
 function Navbar() {
@@ -59,8 +61,28 @@ function Navbar() {
   )
 }
 
+function Protected(props) {
+  return props.loggedIn ? props.children : <Navigate to="/admin/login" replace={true} />;
+}
+function LoggedIn(props) {
+  return props.loggedIn ? <Navigate to="/admin/main" replace={true} />: props.children;
+}
+
+function Error(){
+  return (
+    <div>你要找的頁面不存在</div>
+  )
+}
 
 function App() {
+  const [loggedIn, setLogin] = useState(false);
+  const handleAdminLogin=()=>{
+    setLogin(true);
+  }
+  const handleAdminLogout=()=>{
+    setLogin(false);
+  }
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -73,7 +95,13 @@ function App() {
             <Route path=":articleId" element={<NewsArticle />} />
           </Route>
           <Route path="contact-us" element={<Contact />} ></Route>
-          <Route path="admin/create" element={<Test />} ></Route>
+          <Route path="admin/login" element={<LoggedIn loggedIn={loggedIn}>
+              <AdminLogin handleLogin={handleAdminLogin}/>
+            </LoggedIn>}>
+          </Route>
+          <Route path="admin/main" element={<Protected loggedIn={loggedIn}> <AdminMain logout={handleAdminLogout}/> </Protected>} ></Route>
+          <Route path="admin/create" element={<Protected loggedIn={loggedIn}> <AdminCreatePost /> </Protected>} ></Route>
+          <Route path="*" status={404} element={<Error />} />
         </Routes>
       </div>
     </BrowserRouter>

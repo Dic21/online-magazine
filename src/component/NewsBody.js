@@ -14,7 +14,9 @@ function NewsBody(props) {
     
     const fetchData = ()=>{
         fetch(`/api/article/category/${currentPath}`).then((resData)=>{return resData.json()}).then((data)=>{
-            setList(data);
+            if(data.success){
+                setList(data.data);
+            }
         })
     }
 

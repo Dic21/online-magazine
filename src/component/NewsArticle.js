@@ -6,6 +6,7 @@ function NewsArticle(){
     const [fontSize, setFontSize] = useState("medium");
     const { articleId } = useParams();
     const [art, setArt] = useState(null);
+    const [notFound, setNotFound] = useState(false);
     useEffect(()=>{
         fetchData();
         let size = initSize();
@@ -14,7 +15,11 @@ function NewsArticle(){
 
     const fetchData = ()=>{
         fetch(`/api/article/${articleId}`).then((resData)=>{return resData.json()}).then((data)=>{
-            setArt(data);
+            if(data.success){
+                setArt(data.data);
+            }else{
+                setNotFound(true);
+            }
         })
     }
 
@@ -32,11 +37,14 @@ function NewsArticle(){
         fontWeight:"600",
         backgroundColor: "rgb(211, 211, 211)"
     }
-
-
+    
+    if(notFound){
+        return (<div>沒有此文章</div>)
+    }
     if(!art){
         return (<div>Loading...</div>)
     }
+
     return(
         <div className={`${newsStyle["body-container"]} lock`}>
             😋<Link to={`/article/${art.path}`}>{art.cate}</Link>

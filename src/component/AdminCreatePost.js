@@ -1,7 +1,7 @@
 import { useState } from "react";
 import createStyle from '../Create.module.css';
 
-function Test(){
+function Create(){
     const [titleText, setTitleText] = useState("");
     const [absText, setAbsText] = useState("");
     const [msgText, setMsgText] = useState("");
@@ -31,7 +31,7 @@ function Test(){
             return;
         }
 
-        let dateToServer = {
+        let dataToServer = {
             createDate: new Date().toISOString().slice(0, 10),
             title: titleText,
             abstract: absText,
@@ -42,12 +42,12 @@ function Test(){
             code: validcode
         }
 
-        fetch('/api/admin/create', {
+        fetch('/api/admin/post', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(dateToServer)
+            body: JSON.stringify(dataToServer)
         }).then((resData)=>{return resData.json()}).then((data)=>{
             console.log(data);
             if(data.success){
@@ -85,4 +85,4 @@ function Test(){
 
 
 
-export default Test;
+export default Create;

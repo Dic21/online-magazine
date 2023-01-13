@@ -23,3 +23,31 @@
     width:65px;
     align-self: center;
 }
+.login{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+}
+.login>input, .login>label{
+    width:250px;
+    margin:auto
+}
+
+.login>button{
+    width:100px;
+    margin: auto;
+    margin-top:10px;
+}
+.table-container{
+    margin: auto;
+    width: 600px;
+    transition: all 0.3s;
+    
+}
+
+@media screen and (max-width: 575px){
+    .table-container{
+        width: 400px
+    }
+}
