@@ -42,10 +42,11 @@ function Create(){
             code: validcode
         }
 
-        fetch('/api/admin/post', {
+        fetch('/api/admin/article', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
             body: JSON.stringify(dataToServer)
         }).then((resData)=>{return resData.json()}).then((data)=>{
